@@ -23,7 +23,7 @@ export default function CreatePostPage() {
 
     const token = localStorage.getItem("token"); // za sad ručno ćemo ubaciti
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/postovi/post`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/postovi/create-post`, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,

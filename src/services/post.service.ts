@@ -21,7 +21,7 @@ export async function getSinglePost(id: string) {
 
   // console.log("STATUS:", res.status);
 
-  const data = await res.json();
+  const data = await res.json().catch(() => ({ message: "Nije JSON odgovor" }));
 
   // console.log("DATA:", data);
 
