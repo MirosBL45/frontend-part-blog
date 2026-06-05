@@ -1,11 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
-  const router = useRouter();
-
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -46,7 +43,7 @@ export default function LoginPage() {
         localStorage.setItem("token", data.token);
       }
 
-      router.push("/");
+      window.location.href = "/";
     } catch (error) {
       setError(error instanceof Error ? error.message : "Something went wrong");
     } finally {

@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 
+import ProtectedRoute from "@/components/ProtectedRoute";
+
 export default function CreatePostPage() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -45,31 +47,33 @@ export default function CreatePostPage() {
   };
 
   return (
-    <div className="mx-auto mt-10 max-w-xl rounded-2xl border p-6 shadow">
-      <h1 className="mb-6 text-3xl font-bold">Novi Post</h1>
+    <ProtectedRoute>
+      <div className="mx-auto mt-10 max-w-xl rounded-2xl border p-6 shadow">
+        <h1 className="mb-6 text-3xl font-bold">Novi Post</h1>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          placeholder="Naslov"
-          className="w-full rounded-lg border p-3"
-        />
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Naslov"
+            className="w-full rounded-lg border p-3"
+          />
 
-        <textarea
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder="Content"
-          rows={6}
-          className="w-full rounded-lg border p-3"
-        />
+          <textarea
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            placeholder="Content"
+            rows={6}
+            className="w-full rounded-lg border p-3"
+          />
 
-        <input type="file" accept="image/*" onChange={(e) => setImage(e.target.files?.[0] || null)} />
+          <input type="file" accept="image/*" onChange={(e) => setImage(e.target.files?.[0] || null)} />
 
-        <button className="rounded-lg bg-black px-6 py-3 text-white" type="submit">
-          Kreiraj post
-        </button>
-      </form>
-    </div>
+          <button className="rounded-lg bg-black px-6 py-3 text-white" type="submit">
+            Kreiraj post
+          </button>
+        </form>
+      </div>
+    </ProtectedRoute>
   );
 }

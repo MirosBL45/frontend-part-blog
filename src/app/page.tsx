@@ -1,17 +1,14 @@
-import { getPosts } from "@/services/post.service";
-import PostCard from "@/components/PostCard";
-import { Post } from "@/types/post.types";
+import Link from "next/link";
 
-export default async function Home() {
-  const data = await getPosts();
-
+export default function Home() {
   return (
     <div>
       <h1>Postovi</h1>
 
-      {data.data.map((post: Post) => (
-        <PostCard key={post._id} post={post} />
-      ))}
+      <p>Welcome to the posts page!</p>
+      <Link href="/posts" className="text-green-500">
+        View All Posts
+      </Link>
     </div>
   );
 }
