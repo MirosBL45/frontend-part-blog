@@ -15,6 +15,10 @@ const navigationItems = [
     label: "Sign Up",
     href: "/sign-up",
   },
+  {
+    label: "Login",
+    href: "/login",
+  },
 ];
 
 export default function Navbar() {
